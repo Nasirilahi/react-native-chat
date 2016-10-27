@@ -9,28 +9,20 @@ import {
     Dimensions,
     TextInput
 } from  'react-native';
+import { connect } from 'react-redux';
 
 import socket from '../socket/socket';
-//import "../socket/UserAgent";
-//import io from 'socket.io-client/socket.io';
 
-//var io = require('socket.io-client/socket.io');
-
-//import { connect } from 'react-redux';
 
 var windowSize = Dimensions.get('window').width;
 
-export default class InputContainer extends Component{
+class InputContainer extends Component{
     constructor(props){
         super(props);
 
         this.state = {
             message:''
         };
-
-        // this.socket = io("http://10.1.21.213:3000",{
-        //     jsonp:false
-        // });
         this.onPress= this.onPress.bind(this);
 
     }
@@ -38,7 +30,7 @@ export default class InputContainer extends Component{
 
     onPress(){
         if(this.state.message !==''){
-            socket.emit('new-message', {message: this.state.message, userID: socket.ids, time: new Date()});
+            socket.emit('new-message', {message: this.state.message, sendBy: this.props.username, time: new Date()});
             this.setState({message:''});
         }
 
@@ -106,3 +98,9 @@ const styles = StyleSheet.create({
     }
 })
 
+function mapStateToProps(state){
+    return{
+        username:state.user.name
+    };
+}
+export default connect(mapStateToProps)(InputContainer);

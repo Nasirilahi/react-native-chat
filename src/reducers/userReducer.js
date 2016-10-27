@@ -4,7 +4,7 @@ const initialState ={
     name:''
 };
 
-export default function messagesReducer(state=initialState , action){
+export default function userReducer(state=initialState , action){
     switch (action.type) {
         case USER_RECEIVE:
             return {...state, name:action.text }

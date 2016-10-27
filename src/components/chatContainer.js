@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import InputContainer from './inputContainer';
-
+import ChatView from './chatView';
 
 class ChatContainer extends Component{
     constructor(){
@@ -20,7 +20,7 @@ class ChatContainer extends Component{
         return(
            <View style={styles.container} >
               <View style={styles.messageContianer}>
-
+                <ChatView />
               </View>
                <View style={styles.inputContainer}>
                    <InputContainer socket={ this.socket } />
@@ -35,25 +35,21 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         flexDirection:'column',
-        backgroundColor:'#263238'
+        backgroundColor:'#26A69A'
     },
     inputContainer:{
         flex:1,
     },
     messageContianer:{
         flex:9,
-        borderColor:'yellow',
-        borderWidth:1,
-        alignItems:'center',
-        justifyContent:'center'
+        margin:10
     }
 });
 
 
 function mapStateToProps(state){
     return{
-        user:state.user,
-        messages:state.messages
+        user:state.user
     };
 }
 
