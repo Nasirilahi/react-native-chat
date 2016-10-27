@@ -7,7 +7,7 @@ import React from 'react';
 import  { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
 
-import {store} from './src/store/configureStore';
+import store from './src/store/configureStore';
 import Main from './src/components/main';
 
 

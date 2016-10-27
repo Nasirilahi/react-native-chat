@@ -1,3 +1,5 @@
+"use strict";
+
 import React, { Component } from 'react';
 import {
     StyleSheet,
@@ -6,39 +8,40 @@ import {
     TouchableHighlight,
     Dimensions,
     TextInput
-} from 'react-native';
-//import socket from '../socket/socket';
-// import  SocketIO  from 'react-native-socketio';
+} from  'react-native';
+
+import socket from '../socket/socket';
+//import "../socket/UserAgent";
+//import io from 'socket.io-client/socket.io';
+
+//var io = require('socket.io-client/socket.io');
+
 //import { connect } from 'react-redux';
 
 var windowSize = Dimensions.get('window').width;
 
 export default class InputContainer extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+
         this.state = {
             message:''
         };
-        // this.socket = new SocketIO('localhost:3000', {});
-        // this.socket.connect();
-        this.onPress= this.onPress.bind(this);
 
-    }
-
-    componentDidMount () {
-
-        // this.socket.on('connect', () => {
-        //  console.log('connected to socketio server');
+        // this.socket = io("http://10.1.21.213:3000",{
+        //     jsonp:false
         // });
-
+        this.onPress= this.onPress.bind(this);
 
     }
 
 
     onPress(){
-        console.log(this.state.message);
-       // socket.emit('new-message', {message: this.state.message, userID: socket.id, time: new Date()})
-        this.setState({message:''});
+        if(this.state.message !==''){
+            socket.emit('new-message', {message: this.state.message, userID: socket.ids, time: new Date()});
+            this.setState({message:''});
+        }
+
     }
     render(){
         return(
@@ -90,7 +93,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         backgroundColor:'#757575',
         paddingTop: 5,
-        borderRadius:5
+        borderRadius:3,
+        padding:5
     },
     input: {
         color: 'white',
@@ -101,3 +105,4 @@ const styles = StyleSheet.create({
         backgroundColor:'#424242'
     }
 })
+

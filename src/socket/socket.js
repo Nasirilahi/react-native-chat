@@ -1,17 +1,18 @@
  
 import store from '../store/configureStore';
 import { addMessage } from '../actions/messageActions';
-//import { SocketIO } from 'react-native-socketio';
 
-//const socket = io('localhost:3000');
-//var socket = new SocketIO('localhost:3000');
-socket.connect();
-socket.on('connect',() => {
-    console.log('connected to server');
+import "./UserAgent";
+
+var io = require('socket.io-client/socket.io');
+
+var socket = io("http://10.1.21.213:3000",{
+    jsonp:false
 });
 
+
+
 socket.on('append-message', function (data) {
-	
     store.dispatch(addMessage(data));
 });
 

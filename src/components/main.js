@@ -35,7 +35,7 @@ export default class Main extends Component{
         return(
                 <Navigator
                     style={{}}
-                    initialRoute={{ name:'chat' }}
+                    initialRoute={{ name:'welcome' }}
                     renderScene={this.renderScene}
                     configureScene={()=> { return Navigator.SceneConfigs.FloatFromRight}}
 
