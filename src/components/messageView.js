@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     },
     textreciver: {
         color: "white",
-        alignSelf: "flex-end",
+        alignSelf: "flex-start",
         textAlign: "right"
     },
     time: {

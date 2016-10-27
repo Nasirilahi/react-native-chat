@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux';
 import InputContainer from './inputContainer';
 import ChatView from './chatView';
-
+import Header from './header';
 class ChatContainer extends Component{
     constructor(){
         super();
@@ -19,6 +19,9 @@ class ChatContainer extends Component{
 
         return(
            <View style={styles.container} >
+               <View style={styles.headerContainer}>
+                   <Header />
+               </View>
               <View style={styles.messageContianer}>
                 <ChatView />
               </View>
@@ -35,14 +38,17 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         flexDirection:'column',
-        backgroundColor:'#26A69A'
+        backgroundColor:'#37474F'
     },
     inputContainer:{
         flex:1,
     },
     messageContianer:{
-        flex:9,
+        flex:8,
         margin:10
+    },
+    headerContainer:{
+        flex:1,
     }
 });
 

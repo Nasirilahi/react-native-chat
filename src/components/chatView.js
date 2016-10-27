@@ -15,16 +15,28 @@ class ChatView extends Component {
         super(props);
 
         this.state = {
-            dataSource: ds.cloneWithRows(this.props.messages)
+            dataSource: ds.cloneWithRows(this.props.messages),
+            listHeight: 0,
+            scrollViewHeight: 0
         };
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(nextProps.messages)
+            dataSource: this.state.dataSource.cloneWithRows(nextProps.messages),
+
         });
     }
 
+    scrollToBottom(){
+        const bottomOfList =  this.state.listHeight - this.state.scrollViewHeight
+        console.log('scrollToBottom');
+        this.scrollView.scrollTo({ y: bottomOfList })
+    }
+
+    componentDidUpdate(){
+        this.scrollToBottom()
+    }
 
     renderRow(message, sectionId, rowId) {
         return (
@@ -32,10 +44,20 @@ class ChatView extends Component {
         );
     }
 
+
  render() {
         return (
 
-                <ScrollView>
+                <ScrollView
+                    keyboardDismissMode="on-drag"
+                    onContentSizeChange={ (contentWidth, contentHeight) => {
+                                                    this.setState({listHeight: contentHeight })
+                                         }}
+                    onLayout={(e) => {
+                                        const height = e.nativeEvent.layout.height
+                                        this.setState({scrollViewHeight: height })
+                                      }}
+                    ref={ (ref) => this.scrollView = ref }>
                     <ListView
                         dataSource={this.state.dataSource}
                         renderRow={this.renderRow.bind(this)}
