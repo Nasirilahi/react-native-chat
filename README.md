@@ -2,7 +2,7 @@
 
 This is a react-native android chat app.Anyone person can be part of this chat as it is a public chat app. Same code will
 
-also work on iOS platform, but this is developed for keeping android platform in mind.This applicatin is developed on 
+also work on iOS platform, but this is developed for keeping android platform in mind.This application is developed on 
 
 react-native + redux architecture
 
@@ -19,7 +19,7 @@ https://facebook.github.io/react-native/docs/getting-started.html
 * Make sure `nodejs` is installed
 * React Native CLI is needed, do `npm install -g react-native-cli`
 * clone the repo `git clone https://github.com/Nasirilahi/react-native-chat.git`
-* move into the project directory `cd RNChatApp`
+* move into the project directory `cd react-native-chat`
 * Run `npm install` to install the dependencies
 
 
@@ -42,7 +42,7 @@ $ react-native run-android
 
 Now Your server has started and also build for android will be created in to device or emulator but both will not be able
 
-to communicate. So to make communicaction between these client and server we need to make littel change in a file. Please 
+to communicate. So to make communicaction between these client and server we need to make little change in a file. Please 
 
 do the following to make change :- 
 
