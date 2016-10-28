@@ -4,6 +4,7 @@ import { Button } from 'native-base';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { receiverUser } from '../actions/userActions'
+
 var windowWidth = Dimensions.get('window').width;
 
 class Welcome extends Component{
@@ -15,14 +16,15 @@ class Welcome extends Component{
 
         this.onPress = this.onPress.bind(this);
     }
+
+    /***
+     * handler to send to chat view.
+     */
+
     onPress(){
         if(this.state.text.trim() !==''){
             this.props.receiveUser(this.state.text);
-
-            this.props.navigator.push({
-                name: 'chat',
-                passProps: {name: this.state.text}
-            });
+            this.props.navigator.push({ name: 'chat' });
             this.setState({text:''});
         }
 
@@ -37,7 +39,6 @@ class Welcome extends Component{
                     </View>
                 </View>
                 <View style={styles.inputContainer}>
-
                     <View>
                         <TextInput
                         style={{borderColor: '#FF9800',backgroundColor:'#EEEEEE', borderWidth: 1,borderRadius:10,height:40,width:windowWidth-30,paddingLeft:10}}
@@ -47,15 +48,18 @@ class Welcome extends Component{
                         value={this.state.text}
                          />
                     </View>
-
-                    <View style={{flexDirection:'row',flex:1,paddingTop:20,}}><Button rounded style={{width:windowWidth-30,backgroundColor:'#FF9800'}} onPress={this.onPress} > Proceed </Button></View>
-
+                    <View style={{flexDirection:'row',flex:1,paddingTop:20,}}>
+                        <Button rounded style={{width:windowWidth-30,backgroundColor:'#FF9800'}} onPress={this.onPress} > Proceed </Button>
+                    </View>
                 </View>
-
             </View>
         );
     }
 }
+
+/**
+ * Styling to this component.
+ * */
 
 const styles = StyleSheet.create({
     container:{
@@ -90,11 +94,17 @@ const styles = StyleSheet.create({
     },
 })
 
+/**
+ * connect function take two functions as arguments first to take store state values second to dispatch actions method. 
+ * */
+
 function mapDispatchToProps(dispatch){
     return {
         receiveUser:bindActionCreators(receiverUser, dispatch)
     };
 }
 
-
+/**
+ * connect a react component to redux store.
+ * */
 export default connect(null, mapDispatchToProps)(Welcome);

@@ -60,6 +60,10 @@ class InputContainer extends Component{
 }
 
 
+/**
+ * Styling to this component.
+ * */
+
 const styles = StyleSheet.create({
     inputContainer: {
         flex: 1,
@@ -98,9 +102,18 @@ const styles = StyleSheet.create({
     }
 })
 
+
+/**
+ * connect function take two functions as arguments first to take store state values second to dispatch actions method.
+ * */
 function mapStateToProps(state){
     return{
         username:state.user.name
     };
 }
+
+/**
+ * connect a react component to redux store.
+ */
+
 export default connect(mapStateToProps)(InputContainer);

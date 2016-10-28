@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+
+/**
+ * Simple stateless component.
+ * **/
 const Header = ()=>{
     return(
         <View style={{alignItems:'center',justifyContent:'center', backgroundColor:'#90A4AE'}}>
@@ -8,5 +12,4 @@ const Header = ()=>{
         </View>
     );
 }
-
 export default Header;

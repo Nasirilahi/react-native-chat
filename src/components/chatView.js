@@ -58,17 +58,23 @@ class ChatView extends Component {
                                         this.setState({scrollViewHeight: height })
                                       }}
                     ref={ (ref) => this.scrollView = ref }>
+
                     <ListView
                         dataSource={this.state.dataSource}
                         renderRow={this.renderRow.bind(this)}
                         enableEmptySections={true}
 
                     />
+
                 </ScrollView>
 
          );
  }
 }
+
+/**
+ * connect function take two functions as arguments first to take store state values second to dispatch actions method.
+ * */
 
 function mapStateToProps(state){
     return{
@@ -76,6 +82,8 @@ function mapStateToProps(state){
     }
 }
 
-
+/**
+ * connect a react component to redux store.
+ * */
 
 export default connect(mapStateToProps)(ChatView);
