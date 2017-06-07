@@ -10,11 +10,10 @@ react-native + redux architecture
 
 ### React-native environment set
 
-....
  follow official website of react-native for setting up react-native environment in to your machine.
 
 https://facebook.github.io/react-native/docs/getting-started.html 
-....
+
 
 * Make sure `nodejs` is installed
 * React Native CLI is needed, do `npm install -g react-native-cli`
