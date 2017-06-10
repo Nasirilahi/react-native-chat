@@ -10,13 +10,7 @@ import ChatView from './chatView';
 import Header from './header';
 
 class ChatContainer extends Component{
-
-    constructor(){
-        super();
-    }
-
     render(){
-
         return(
            <View style={styles.container} >
                <View style={styles.headerContainer}>
@@ -54,21 +48,6 @@ const styles = StyleSheet.create({
     }
 });
 
-
-/**
- * connect function take two functions as arguments first to take store state values second to dispatch actions method.
- * */
-
-function mapStateToProps(state){
-    return{
-        user:state.user
-    };
-}
-
-
-
-/**
- * connect a react component to redux store.
- * */
+const mapStateToProps = ({user}) => ({user});
 
 export default connect(mapStateToProps)(ChatContainer);

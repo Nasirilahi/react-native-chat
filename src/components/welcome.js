@@ -13,15 +13,13 @@ class Welcome extends Component{
         this.state ={
             text:''
         }
-
-        this.onPress = this.onPress.bind(this);
     }
 
     /***
      * handler to send to chat view.
      */
 
-    onPress(){
+    onPress = ()=>{
         if(this.state.text.trim() !==''){
             this.props.receiveUser(this.state.text);
             this.props.navigator.push({ name: 'chat' });
@@ -112,7 +110,7 @@ const styles = StyleSheet.create({
  * connect function take two functions as arguments first to take store state values second to dispatch actions method. 
  * */
 
-function mapDispatchToProps(dispatch){
+const mapDispatchToProps = (dispatch) => {
     return {
         receiveUser:bindActionCreators(receiverUser, dispatch)
     };

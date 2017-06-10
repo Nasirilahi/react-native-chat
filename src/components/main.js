@@ -16,12 +16,7 @@ const ROUTES = {
 /**
  * This component is responsible only for navigation.
  * */
-
 export default class Main extends Component{
-    /**
-     *  render scene function use in Navigator component to tell which view is to be render.
-     * */
-
     renderScene = (route, navigator) =>{
         var Component = ROUTES[route.name];
         return <Component route={route} navigator={navigator} />;

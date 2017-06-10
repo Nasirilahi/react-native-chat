@@ -1,20 +1,14 @@
-"use strict";
-
 import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
     Text,
     TouchableHighlight,
-    Dimensions,
     TextInput
 } from  'react-native';
 import { connect } from 'react-redux';
-
 import socket from '../socket/socket';
 
-
-var windowSize = Dimensions.get('window').width;
 
 class InputContainer extends Component{
     constructor(props){

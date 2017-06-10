@@ -1,6 +1,12 @@
-'use strict';
 import React, { Component } from 'react';
-import {AppRegistry, StyleSheet, TouchableHighlight, Text, ListView, View, ScrollView} from 'react-native';
+import {
+    StyleSheet, 
+    TouchableHighlight, 
+    Text, 
+    ListView, 
+    View, 
+    ScrollView
+} from 'react-native';
 import { connect } from 'react-redux';
 
 import MessageView from './messageView';
@@ -72,18 +78,6 @@ class ChatView extends Component {
  }
 }
 
-/**
- * connect function take two functions as arguments first to take store state values second to dispatch actions method.
- * */
-
-function mapStateToProps(state){
-    return{
-        messages: state.messages.messages
-    }
-}
-
-/**
- * connect a react component to redux store.
- * */
+const  mapStateToProps = ({messages: { messages }}) => ({messages});
 
 export default connect(mapStateToProps)(ChatView);

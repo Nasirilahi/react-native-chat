@@ -1,11 +1,13 @@
-'use strict';
-
 import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
-
 import socket from '../socket/socket';
-import {AppRegistry, StyleSheet, TouchableHighlight, Text, View, Dimensions, ScrollView } from 'react-native';
+import {
+    StyleSheet, 
+    Text, 
+    View, 
+    Dimensions,  
+} from 'react-native';
 
 const { width } = Dimensions.get('window');
 
@@ -31,7 +33,6 @@ class MessageView extends Component {
                             <Text style={styles.textreciver}>
                                 {this.props.message.message}
                             </Text>
-
                             <Text style={[styles.time ,styles.timeLeft]}>{moment(this.props.message.time).format('hh:mm a')}</Text>
                         </View>
                     }
@@ -116,10 +117,6 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state){
-    return{
-        username:state.user.name
-    };
-}
+const mapStateToProps = ({user : { name }}) => ({username :name })
 
 export default connect(mapStateToProps)(MessageView);
