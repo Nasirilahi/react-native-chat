@@ -117,3 +117,10 @@ function mapStateToProps(state){
  */
 
 export default connect(mapStateToProps)(InputContainer);
+
+//  "express": "^4.14.0",
+//     "http": "0.0.0",
+//   "react-redux": "^4.4.5",
+//     "redux": "^3.6.0",
+//     "socket.io": "^1.5.1",
+//     "socket.io-client": "^1.5.1"

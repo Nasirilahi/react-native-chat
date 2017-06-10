@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Dimensions, StyleSheet,TouchableHighlight, } from 'react-native';
-import { Button } from 'native-base';
+// import { Button } from 'native-base';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { receiverUser } from '../actions/userActions'
 
-var windowWidth = Dimensions.get('window').width;
+const { width } = Dimensions.get('window');
 
 class Welcome extends Component{
     constructor(props){
@@ -41,15 +41,17 @@ class Welcome extends Component{
                 <View style={styles.inputContainer}>
                     <View>
                         <TextInput
-                        style={{borderColor: '#FF9800',backgroundColor:'#EEEEEE', borderWidth: 1,borderRadius:10,height:40,width:windowWidth-30,paddingLeft:10}}
+                        style={styles.textInput}
                         placeholder={this.state.text}
                         underlineColorAndroid="rgba(0,0,0,0.0)"
                         onChangeText={(text) => this.setState({text})}
                         value={this.state.text}
                          />
                     </View>
-                    <View style={{flexDirection:'row',flex:1,paddingTop:20,}}>
-                        <Button rounded style={{width:windowWidth-30,backgroundColor:'#FF9800'}} onPress={this.onPress} > Proceed </Button>
+                    <View style={styles.buttonContainer}>
+                        <TouchableHighlight style={styles.buttonView} onPress={this.onPress}>
+                            <Text style={styles.buttonText}>{'Proceed'}</Text>
+                        </TouchableHighlight>
                     </View>
                 </View>
             </View>
@@ -64,9 +66,6 @@ class Welcome extends Component{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        alignItems:'stretch',
-        justifyContent:'center',
-
     },
     inputContainer:{
         flex:1,
@@ -81,16 +80,31 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center'
     },
-    fullWidthButton: {
-        backgroundColor: 'blue',
-        height:70,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
+    textInput:{
+        borderColor: '#FF9800',
+        backgroundColor:'#EEEEEE', 
+        borderWidth: 1,
+        borderRadius:10,
+        height:40,
+        width:width-30,
+        paddingLeft:10
     },
-    fullWidthButtonText: {
-        fontSize:24,
-        color: 'white'
+    buttonContainer:{
+        flex:1,
+        marginVertical:10,
+        alignItems:'center'
+    },
+    buttonView: {
+        width:width-30,
+        backgroundColor:'#FF9800',
+        paddingVertical:10,
+        alignItems:'center',
+        borderRadius:10,
+    },
+    buttonText:{
+        fontSize:20,
+        color:'white',
+        fontWeight:'bold',
     },
 })
 

@@ -4,11 +4,6 @@
  * @flow
  */
 
-/**
- * Main applicaiton file for android platform.
- *
- * */
-
 import React from 'react';
 import  { AppRegistry } from 'react-native';
 
