@@ -1,10 +1,6 @@
 # react-native-chat
 
-This is a react-native android chat app.Anyone person can be part of this chat as it is a public chat app. Same code will
-
-also work on iOS platform, but this is developed for keeping android platform in mind.This application is developed on 
-
-react-native + redux architecture
+This is a react-native android chat app.Anyone person can be part of this chat as it is a public chat app. Same code will also work on iOS platform, but this is developed for keeping android platform in mind.This application is developed on react-native + redux architecture
 
 ## Getting Started
 
